@@ -1,0 +1,245 @@
+
+.form-wrapper{
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-areas: "form form";
+    @include respond-to('device'){
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "carousel carousel" "form form";
+    }
+    @include respond-to('large'){
+        grid-template-columns: .9fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "carousel form";
+    }
+    ///CARROUSEL 
+
+    &__carousel{
+        grid-area: carousel;
+        background: $light-green;
+        display: none;
+        padding: 0 39px;
+        @include respond-to('medium'){
+           display: block;             
+        }
+
+        .welcome{
+            margin: $ilustration-margin;
+            &__image{
+                &-img{
+                    width: $illustration-width;
+                    margin: auto;
+                    pointer-events: none;
+                    user-select: none;
+                    object-fit: contain;
+                    display: flex;
+                }
+            }
+
+            &__slide{
+                margin-top: $margin-top;
+                text-align: center;
+                outline: none;
+                &-title{
+                    color: $white;
+                    font: {
+                        family: $font2;
+                        size: 28px;
+                        weight: $weight100
+                    }
+                }
+
+                &-text{
+                    color: $white;
+                    max-width: 475px;
+                    margin-top: 20px;
+                    font: {
+                        family: $font2;
+                        size: 17px;
+                    }
+                }
+            }
+            .rec-dot{
+                background: $white !important;
+                opacity: .5;
+                box-shadow: none;
+            }
+            .rec-dot_active{
+                background: $white !important;
+                opacity: 1;
+            }
+        }
+    }
+
+
+    ///FORMULARIO 
+
+    &__form{
+        grid-area: form;
+        padding: 20px 40px;
+        @include respond-to('medium'){
+            padding: 120px 20% 0;
+        }
+
+        &-title{
+            text-align: right;
+            font-size: 35px;
+        }
+        &-subtitle{
+            text-align: center;
+            margin: 5rem 0;
+            color: $gray;
+            font: {
+                size: 30px;
+                family: $font2
+
+            }
+        }
+
+        &-input-control{
+            width: 85%;
+            display: flex;
+            justify-content: center;
+            margin: auto;
+            flex-direction: column;
+            &-input{
+                width: 100%;
+                display: flex !important;
+                margin: auto !important;
+                &.second{
+                    margin-top: 30px !important
+                }
+                .Mui-focused:not(.Mui-error){
+                    color:  $light-green !important
+                }
+                .MuiInput-input{
+                    color: $gray !important;
+                    padding-left: 10px;
+                }
+                .MuiInput-underline:not(.Mui-error){
+                    &:after{
+                        border-color: $light-green !important
+                    }
+
+                } 
+            }
+            &-error-msg{
+                color: $error-color;
+                font: {
+                    family: $font2;
+                    size: 10px;
+                }
+            }
+            &-forgot{
+                color: $gray;
+                margin-top: 5px;
+                text: {
+                    decoration: none;
+                    align: right;
+                }
+                font: {
+                    size: 12px;
+                    family: $font2
+                }
+            }
+        }
+
+        &-signin{
+            margin: 3rem auto;
+            display: flex;
+            background: $gray;
+            color: $white;
+            padding: 15px 60px;
+            @include border-radius(100px);
+            @include transition(.3s);
+            font: {
+                size: 16px;
+                family: $font2;
+                weight: $weight400;
+            }
+            &:hover{
+                background: $light-gray;
+                color: $gray;
+            }
+        }
+
+        &-line{
+            text-align: center;
+            color: $gray;
+            border-bottom: 1px solid #adadad;
+            line-height: 0.1em; 
+            margin: 10px auto 25px auto;
+            max-width: 85%;
+            font: {
+                size: 13px;
+                family: $font2;
+            }
+
+            span{
+                background:$white; 
+                padding:0 15px;
+            }
+        }
+
+        &-google{
+            background: $white;
+            padding: 15px 60px;
+            @include border-radius(100px);
+            @include box-shadow(0, 3px, 6px, 0, rgba(0,0,0,.29));
+            @include transition(.3s);
+            display: flex;
+            align-items: center;
+            margin: 55px auto;
+            font: {
+                family: $font3;
+                size: 15px;
+                weight: $weight400;
+            }
+            &:hover{
+                @include box-shadow(0, 3px, 6px, 0, rgba(0,0,0,.5));
+            }
+            img{
+                width: 29px;
+                height: 30px;
+                margin-right: 15px;
+            }
+        }
+
+        &-register{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $gray;
+            margin-bottom: 20px;
+            font: {
+                family: $font2;
+                size: 13px;
+            }
+            b{
+                margin: 0 6px;
+            }
+            b, .link{
+                font: {
+                    family: $font2;
+                    size: 13px;
+                }
+            }
+            .link{
+                color: $light-green;
+                font-size: 16px;
+                text-decoration: none;
+            }
+
+            &--term{
+                display: block;
+                margin: 0 auto 20px auto;
+                text-align: center;
+                max-width: 240px;
+                .link{
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
